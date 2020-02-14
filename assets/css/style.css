@@ -100,17 +100,27 @@ li {
 /*for wrapper*/
 .wrapper {
   max-width: 1360px;
-  width: 86%; 
+  width: 90%; 
   margin: 0 auto;
 }
 /*=================================
   Header styling starts here
 =================================*/
 
+.hamburger { display: none; }
 
+header { position: relative; }
 
+header { 
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
 
-
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
 
 /*=================================
   Header styling ends here
@@ -146,6 +156,12 @@ li {
 =================================*/ 
 
 /*media query starts*/
+
+/*media query for remove hover effect below 1024*/
+@media only screen and (min-width: 1024px) {
+
+}
+
 /*media query for 995px starts here*/
 @media only screen and (max-width: 995px) {
 
