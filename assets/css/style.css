@@ -88,6 +88,10 @@ body {
 }
 
 a { 
+  cursor: pointer;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
   display: inline-block;
   text-decoration: none; 
 }
@@ -117,11 +121,27 @@ header {
   top: 0;
 }
 
+nav { padding-top: 20px; }
+
 nav ul {
-  display: flex;
-  justify-content: flex-end;
+ display: -webkit-box;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-box-pack: end;
+ -ms-flex-pack: end;
+ justify-content: flex-end;
 }
 
+nav a {
+  box-sizing: border-box;
+  padding: 12px 10%;
+  margin-left: 30px;
+  color: #666;
+  border : 1px solid transparent ;
+  text-transform: uppercase;
+}
+
+.active { border : 1px solid #000; }
 /*=================================
   Header styling ends here
 =================================*/  
@@ -129,13 +149,171 @@ nav ul {
 /*=================================
   main styling starts here
 =================================*/
+h2 { font-size: 44px; }
+
+h3 { 
+  padding-top: 77px;
+  color: #767676;
+  font: 40px bold;
+  text-align: center; 
+}
+
+h4 { 
+  margin-bottom: 1px;
+  color: #666;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/*banner style start*/
+
+.banner {
+  background-image: url('https://via.placeholder.com/1284x784.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner .wrapper {
+  padding-bottom: 700px;
+  position: relative;
+}
+
+.banner img, h3 + figure img  {
+  max-width: 256px;
+  mix-blend-mode: darken;
+}
+
+.banner-text { 
+  width: 42%;
+  position: absolute;
+  top : 40%;
+  right: 0;
+  text-align: center;
+
+}
+
+/*banner style end*/
+/*turnip section style start*/
+
+.turnip {
+  padding : 130px 1%; 
+  background-color: #f3c30e;
+}
+
+.turnip img { 
+  max-width: 88px; 
+  margin-bottom: 28px;
+}
+
+.turnip li {
+  width: 30%;
+  text-align: center;
+}
+
+.turnip li:not(:last-child) { margin-right: 40px; }
+
+.turnip h4 {
+  font-weight: bold;
+}
+/*turnip section style end*/
+/*monthspecial section styling start*/
+
+.monthSpecial { padding-bottom: 177px; }
+
+h3 + figure {
+  margin-top: -46px;
+  text-align: center;
+}
+
+.monthSpecial li {
+  position: relative;
+  -ms-flex-preferred-size: 16%;
+  flex-basis: 16%;
+}
+
+.veggieimgs li { position: relative; }
+
+.veggieInfo {
+  background-color: #d2d2d2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  transition: .5s ease;
+  text-align: center;
+}
+
+.veggieInfo h4 { 
+  padding: 20px 0;
+  font-weight: bold;
+}
+.veggieInfo h4:after {
+  content: '';
+  width: 33%;
+  padding : 1px;
+  margin-left: -80px;
+  position: absolute;
+  top :28%;
+  background-color: #676767;
+} 
+
+.veggieInfo p {
+  margin: 20px 0;
+  color: #666;
+}
+
+.veggieInfo span { color: #696969; }
+
+/*monthspecial section styling end*/
+/*about style start*/
+
+.about {
+  padding: 88px 2%;
+  background-color: #ddd;
+}
+
+.about ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about h3 ,
+.about h3 + figure { width: 50%; }
+
+.about li { flex-basis:  45%; }
+
+.about li:first-child img { max-width: 220px; }
+
+.about li:last-child img { max-width: 481px; }
+
+.about li:first-child figure { float: right; }
 
 
+/*about style done*/
 
+.menulist ,
+.monthSpecial ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 
+.menulist li {
+  box-sizing: border-box;
+  padding-left: 1%;
+  margin-bottom: 58px;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+}
 
-
-
+.menulist p {
+  color: #797981;
+  font-style: italic;
+}
 
 /*=================================
   main styling ends here
@@ -159,6 +337,14 @@ nav ul {
 
 /*media query for remove hover effect below 1024*/
 @media only screen and (min-width: 1024px) {
+
+  nav a:hover { border : 1px solid #000;  }
+  
+  .veggieimgs a:hover .veggieInfo { 
+    background-color: blue;
+    opacity: 1; 
+  }
+
 
 }
 
