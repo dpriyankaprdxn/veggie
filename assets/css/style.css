@@ -155,6 +155,7 @@ h3 {
   padding-top: 77px;
   color: #767676;
   font: 40px bold;
+  font-weight: bold;
   text-align: center; 
 }
 
@@ -179,6 +180,7 @@ h4 {
 }
 
 .banner img, h3 + figure img  {
+  margin-top: -46px;
   max-width: 256px;
   mix-blend-mode: darken;
 }
@@ -220,10 +222,7 @@ h4 {
 
 .monthSpecial { padding-bottom: 177px; }
 
-h3 + figure {
-  margin-top: -46px;
-  text-align: center;
-}
+h3 + figure {  text-align: center; }
 
 .monthSpecial li {
   position: relative;
@@ -274,24 +273,50 @@ h3 + figure {
   background-color: #ddd;
 }
 
-.about ul {
-  display: flex;
-  justify-content: space-between;
+.about h3  { padding-top: 0; }
+
+.about p { 
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 35px; 
+  text-align: center;
 }
 
-.about h3 ,
-.about h3 + figure { width: 50%; }
+.about li { width : 49%; }
 
-.about li { flex-basis:  45%; }
+.about li:last-child { float: right; }
 
 .about li:first-child img { max-width: 220px; }
 
-.about li:last-child img { max-width: 481px; }
+.about li:last-child img { 
+  max-width: 481px; 
+  float: right;
+}
 
-.about li:first-child figure { float: right; }
+.about li:first-child figure:last-child { float: right; }
 
+/*about style end*/
+/*menu style start*/
 
-/*about style done*/
+.menuNav , .menulist + div { 
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.menuNav li { 
+  flex-basis: 8%;
+  text-align: center; 
+}
+
+.menuNav a { 
+  padding: 2px 2%;
+  color: #3b3f48; 
+  text-transform: capitalize;
+}
 
 .menulist ,
 .monthSpecial ul {
@@ -315,6 +340,16 @@ h3 + figure {
   font-style: italic;
 }
 
+.showmore {
+  padding: 7px 1%;
+  margin :15px 0 25px;
+  border :1px solid transparent;
+  background-color: #767676;
+  color: #fff;
+  text-transform:uppercase;
+}
+
+/*menu style end*/
 /*=================================
   main styling ends here
 =================================*/
@@ -344,8 +379,14 @@ h3 + figure {
     background-color: blue;
     opacity: 1; 
   }
-
-
+  
+  .menuNav a:hover { color: #000; }
+  
+  .showmore:hover {
+    border: 1px solid #767676;
+    background-color: #fff;
+    color: #767676;
+  }
 }
 
 /*media query for 995px starts here*/
