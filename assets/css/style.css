@@ -113,12 +113,11 @@ li {
 
 .hamburger { display: none; }
 
-header { position: relative; }
-
 header { 
   width: 100%;
   position: absolute;
   top: 0;
+  z-index: 1;
 }
 
 nav { padding-top: 20px; }
@@ -233,13 +232,13 @@ h3 + figure {  text-align: center; }
 .veggieimgs li { position: relative; }
 
 .veggieInfo {
-  background-color: #d2d2d2;
+  background-color: #fff;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  display: none;
+  opacity: 0;
   transition: .5s ease;
   text-align: center;
 }
@@ -357,10 +356,18 @@ h3 + figure {  text-align: center; }
 /*=================================
   footer styling starts here
 =================================*/ 
+.down{
+  text-indent: -9999px;
+  display: inline-block;
 
+}
 
-
-
+.down::before{
+  float: right;
+  content: '\f107';
+  font-family: FontAwesome;
+  text-indent: 0;
+}
 
 
 
@@ -378,6 +385,10 @@ h3 + figure {  text-align: center; }
   .veggieimgs a:hover .veggieInfo { 
     background-color: blue;
     opacity: 1; 
+  }
+
+  .veggieimgs li:hover .veggieInfo{
+    opacity: 0.5;
   }
   
   .menuNav a:hover { color: #000; }
