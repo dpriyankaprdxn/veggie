@@ -111,13 +111,29 @@ li {
   Header styling starts here
 =================================*/
 
-.hamburger { display: none; }
+.container { position: relative; }
+
 
 header { 
   width: 100%;
   position: absolute;
   top: 0;
   z-index: 1;
+}
+
+.hamburger { display: none; }
+
+.hamburger span {
+  padding: 3px;
+  margin-bottom: 3px;
+  text-indent: -9999px;
+  display: block;
+  background: green;
+}
+
+.hamburger span:before {
+  float: right;
+  text-indent: 0;
 }
 
 nav { padding-top: 20px; }
@@ -190,8 +206,46 @@ h4 {
   top : 40%;
   right: 0;
   text-align: center;
+}
+
+.banner a {
+  padding : 8px 1%;
+  border: 1px solid #fff;
+  border-radius :50%;
+  -webkit-border-radius :50%;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.fa-angle-down,
+.fa-angle-double-down,
+footer ul a {
+  text-indent: -9999px;
+  display: inline-block;
 
 }
+
+.fa-angle-down:before,
+.fa-angle-double-down:before,
+footer ul a:before {
+  color: #fff;
+  float: right;
+  font-family: FontAwesome;
+  text-indent: 0;
+}
+
+.fa-angle-down { 
+  position: absolute;
+  top: 39%;
+}
+
+.fa-angle-down:before { content: '\f107'; 
+ }
+.fa-angle-double-down:before { content: "\f103" }
 
 /*banner style end*/
 /*turnip section style start*/
@@ -239,6 +293,8 @@ h3 + figure {  text-align: center; }
   left: 0;
   right: 0;
   opacity: 0;
+  -webkit-transition: .5s ease;
+  -o-transition: .5s ease;
   transition: .5s ease;
   text-align: center;
 }
@@ -261,6 +317,8 @@ h3 + figure {  text-align: center; }
   margin: 20px 0;
   color: #666;
 }
+
+.veggieimgs a { width: 100%; }
 
 .veggieInfo span { color: #696969; }
 
@@ -347,8 +405,82 @@ h3 + figure {  text-align: center; }
   color: #fff;
   text-transform:uppercase;
 }
-
 /*menu style end*/
+/*contact style start*/
+.contact {
+  width: 100%;
+  padding-bottom: 475px;
+  background-image: url('https://via.placeholder.com/1284x840.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contact ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.contact h3 ,
+.contact h3 + figure{
+  width: 50%;
+  margin-left: 50%;
+}
+
+.contact li {
+  -ms-flex-preferred-size: 22%;
+  flex-basis: 22%;
+}
+
+.contact span { display:block; }
+
+.contact h4 { 
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold; 
+}
+
+.contact a, .contact address { 
+  color: #666;  
+}
+
+.contactform {
+  width: 44%;
+  margin-top: 60px;
+  float: right;
+}
+
+.form-group:first-child , .form-group:nth-child(2) { 
+  margin-bottom: 15px;
+  display: inline-block; 
+}
+
+.form-group:first-child { margin-right: 5%; }
+
+.form-group input , .form-group textarea {
+  padding: 2px 0 7px 1%;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  padding: 2px 42% 100px 1%;
+  margin-bottom: 35px;
+}
+
+.send {
+  padding : 10px 4%;
+  margin-left: 30%;
+  border: 1px solid #000;
+  background: transparent;
+  font-size: 16px;
+}
+/*contact style end*/
 /*=================================
   main styling ends here
 =================================*/
@@ -356,20 +488,61 @@ h3 + figure {  text-align: center; }
 /*=================================
   footer styling starts here
 =================================*/ 
-.down{
-  text-indent: -9999px;
-  display: inline-block;
 
+footer { 
+  width: 100%;
+  position: absolute; 
+  bottom: 1%;
 }
 
-.down::before{
-  float: right;
-  content: '\f107';
+footer .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; 
+}
+
+footer p { 
+  -ms-flex-preferred-size: 40%;
+  flex-basis: 40%;
+  color: #676767; 
+}
+
+footer p a {  color: green; }
+
+footer p a:before {
+  content: "\f004";
+  color: red;
   font-family: FontAwesome;
-  text-indent: 0;
+  font-size: 14px;
 }
 
+footer ul { 
+  -ms-flex-preferred-size: 10%;
+  flex-basis: 10%; 
+}
 
+footer li:first-child { margin-right: 19%; }
+
+footer ul li:first-child a:before { 
+  content: '\f09a'; 
+  padding: 4px 55%;
+  color: #666;
+  border: 1px solid #666;
+  background: transparent;
+  font-size: 20px;
+}
+
+footer ul li:last-child a:before { 
+  content: '\f0e1'; 
+  padding: 4px 40%;
+  color: #666;
+  border: 1px solid #666;
+  background: transparent;
+  font-size: 20px;
+}
 
  /*=================================
   footer styling ends here
@@ -398,6 +571,17 @@ h3 + figure {  text-align: center; }
     background-color: #fff;
     color: #767676;
   }
+
+  .banner a:hover { border: 1px solid #000; } 
+
+  .send:hover {
+    border : 1px solid #666;
+    color: #666;  
+  }
+
+  footer p a:hover { color: #559a2f; }
+  
+  footer ul li a:hover {  color: #fff; }
 }
 
 /*media query for 995px starts here*/
