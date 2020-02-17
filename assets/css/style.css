@@ -335,15 +335,13 @@ h3 + figure {  text-align: center; }
   display: none; 
   position: fixed;
   z-index: 1; 
-  left: 50%;
-  top: 50%;
-  width: 35%; 
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom : 0;
   overflow: auto; 
   background-color: rgba(0,0,0,0.9); 
   text-align: center;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 .modal img { max-width: 195px; }
