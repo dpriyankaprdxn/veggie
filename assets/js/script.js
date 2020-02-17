@@ -8,6 +8,8 @@ var srcvalue;
 var button = document.querySelector(".showmore");
 var result = document.querySelector(".menulist");
 var hamburger = document.querySelector(".hamburger");
+var navigation = document.getElementsByTagName('nav')[0];
+
 
 button.addEventListener('click',showmoredata);
 hamburger.addEventListener('click',navshow);
@@ -130,6 +132,12 @@ function showmoredata(e) {
 }
 
 function navshow() {
-	document.getElementsByTagName('nav')[0].style.display='block';
+	if (navigation.style.display === "block") {
+    navigation.style.display = "none";
+  } else {
+    navigation.style.display = "block";
+  }
 	hamburger.classList.toggle('open');
 }
+
+
