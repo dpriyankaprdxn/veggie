@@ -198,7 +198,7 @@ h4 {
 }
 
 .banner .wrapper {
-  padding-bottom: 700px;
+  padding-bottom: 784px;
   position: relative;
 }
 
@@ -291,8 +291,6 @@ h3 + figure {  text-align: center; }
   flex-basis: 16%;
 }
 
-.monthSpecial img { max-width: 195px; }
-
 .veggieimgs li { position: relative; }
 
 .veggieInfo {
@@ -331,6 +329,38 @@ h3 + figure {  text-align: center; }
 .veggieimgs a { width: 100%; }
 
 .veggieInfo span { color: #696969; }
+
+.img-model {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 50%;
+  top: 50%;
+  width: 60%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.9); 
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /*monthspecial section styling end*/
 /*about style start*/
@@ -373,6 +403,8 @@ h3 + figure {  text-align: center; }
   -ms-flex-pack: center;
   justify-content: center;
 }
+
+.menuNav { margin-bottom: 59px; } 
 
 .menuNav li { 
   flex-basis: 10%;
@@ -618,11 +650,94 @@ footer ul li:last-child a:before {
   .menulist li { flex-basis: 100%; }
 
   .contact {  padding-bottom: 550px; }
+
+  .about li { 
+    width: 100%; 
+    margin-bottom: 15px;
+  }
+
+  .about li:last-child,
+  .about li:last-child img { 
+    float: none; 
+    text-align: center;
+  }
+
+  .contact h3, .contact h3 + figure {
+    width : 100%;
+    margin-left: 0;
+  }
+
+  .contact ul { justify-content: center; }
+
+  .contactform { width: 76%;  }
+
 }  
 
+/*media query for 767px starts here*/
 @media only screen and (max-width: 767px) {
 
   .monthSpecial li { 
     flex-basis :33%; 
   }
+
+  .form-group:first-child, .form-group:nth-child(2) { 
+    margin-right: 0;
+    display: block; 
+  }
+
+  .form-group input {  padding: 2px 45% 7px 1%; }
+
+  footer li:first-child { margin-right: 30%; }
+
+  .menuNav { flex-direction: column; }
+
+  .menuNav li { 
+    margin-bottom: 5px;
+    flex-basis: 100%; 
+  }
+
+  .monthSpecial li { 
+    margin-bottom: 10px;
+    flex-basis: 100%; 
+  }
+
+  .monthSpecial ul { 
+    flex-direction: column; 
+    text-align: center;
+  }
+ 
+  .monthSpecial img { max-width: 195px; }
+
+}
+
+/*media query for 540px starts here*/
+@media only screen and (max-width: 540px) {
+
+  h2 { font-size: 30px; }
+
+  .banner .wrapper { padding-bottom: 615px; }
+
+  .banner-text { top: 20%; }
+
+  .banner img, h3 + figure img { margin-top :-12px; }
+
+  .form-group input, .form-group textarea {  padding: 2px 15% 7px 1%; }
+
+  .contactform { width: 85%; }
+
+  footer .wrapper { flex-direction: column; }
+
+  footer p, footer ul {
+    margin-bottom : 10px; 
+    flex-basis: 100%; 
+    text-align: center;
+  }
+  
+  footer li { 
+    width: 20%;
+    text-align: center; 
+  }
+
+  footer li:first-child { margin-right: 6%; }
+ 
 }
