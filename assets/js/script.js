@@ -9,7 +9,7 @@ var button = document.querySelector(".showmore");
 var result = document.querySelector(".menulist");
 var hamburger = document.querySelector(".hamburger");
 var navigation = document.getElementsByTagName('nav')[0];
-
+var k;
 
 button.addEventListener('click',showmoredata);
 hamburger.addEventListener('click',navshow);
@@ -61,27 +61,11 @@ request1.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
 request1.onload  = function() {
 	if(this.readyState == 4 && this.status == 200) {
 		var data = JSON.parse(request1.responseText);
-		console.log(data.length);
-		console.log(request1.responseText);
-		menudata(data,0,4);
+		j=0;
+		menudata(data,4)
 	}
 };
 request1.send();
-
-function menudata(data,j,k){
-	for(var i=j; i<k;i++) {
-			var customli = document.createElement('li');
-			var heading = document.createElement('h4');
-			var text =document.createTextNode(data[i].menu);
-			heading.appendChild(text);			
-			customli.appendChild(heading);
-			var para = document.createElement('p');
-			var paratext = document.createTextNode(data[i].typ);
-			para.appendChild(paratext);
-			customli.appendChild(para);
-			result.appendChild(customli);
-		}
-}
 
 var j=0,id=0;
 function showmoredata(e) {
@@ -90,45 +74,34 @@ function showmoredata(e) {
 	request.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
 	request.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
-			var data = JSON.parse(request.responseText);
+			k=j+4;
+			var data = JSON.parse(request.responseText);	
 			rem = data.length%4;
 	    id =data.length-rem;
-			for(var i=j; i<j+4;i++) {
-				var customli = document.createElement('li');
-				var heading = document.createElement('h4');
-				var text =document.createTextNode(data[i].menu);
-				heading.appendChild(text);			
-				customli.appendChild(heading);
-				var para = document.createElement('p');
-				var paratext = document.createTextNode(data[i].typ);
-				para.appendChild(paratext);
-				customli.appendChild(para);
-				result.appendChild(customli);
-			}
+	    if(id==j) {
+				button.style.display="none";
+				k=data.length;
+   		}
+			menudata(data,k);
 	  }
 	};
   j=j+4;
-	if(id==j) {
-		button.style.display="none";
-		request.onreadystatechange = function() {
-			if(this.readyState == 4 && this.status == 200) {
-				var data = JSON.parse(request.responseText);
-				for(var i=j; i<data.length;i++) {
-					var customli = document.createElement('li');
-					var heading = document.createElement('h4');
-					var text =document.createTextNode(data[i].menu);
-					heading.appendChild(text);			
-					customli.appendChild(heading);
-					var para = document.createElement('p');
-					var paratext = document.createTextNode(data[i].typ);
-					para.appendChild(paratext);
-					customli.appendChild(para);
-					result.appendChild(customli);
-				}
-		  }
-		};
-	}
 	request.send();
+}
+
+function menudata(data,k){
+	for(var i=j; i<k;i++) {
+		var customli = document.createElement('li');
+		var heading = document.createElement('h4');
+		var text =document.createTextNode(data[i].menu);
+		heading.appendChild(text);			
+		customli.appendChild(heading);
+		var para = document.createElement('p');
+		var paratext = document.createTextNode(data[i].typ);
+		para.appendChild(paratext);
+		customli.appendChild(para);
+		result.appendChild(customli);		
+	}
 }
 
 function navshow() {
