@@ -631,9 +631,22 @@ footer ul li:last-child a:before {
 
   .hamburger { display: block; }
 
-  nav { display: none; }
+  nav ul { flex-direction: column; }
 
-  nav li { display: block; }
+  nav { 
+    display: none; 
+    position: absolute;
+    top :70%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 12%);
+    -ms-transform: translate(-50%, 12%);
+    transform: translate(-50%, 12%);
+  }
+
+  nav li { 
+    display: block; 
+    flex-basis: 100%;
+  }
   
   .turnip li:not(:last-child) { margin : 0 auto 25px; }
 
@@ -717,7 +730,7 @@ footer ul li:last-child a:before {
 
   .banner .wrapper { padding-bottom: 615px; }
 
-  .banner-text { top: 20%; }
+  .banner-text { top: 44%; }
 
   .banner img, h3 + figure img { margin-top :-12px; }
 
