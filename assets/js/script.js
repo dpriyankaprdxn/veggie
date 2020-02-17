@@ -19,16 +19,19 @@ for (var i = 0; i < getAllImages.length; i++) {
 
 function scrolltoTop(e) {
 	e.preventDefault();
-	document.body.scrollTop = document.documentElement.scrollTop = 0;
+	var elmntToView = document.querySelector(".turnip");
+  elmntToView.scrollIntoView(); 
 }
 
 var button = document.querySelector(".showmore");
 var result = document.querySelector(".menulist");
+var hamburger = document.querySelector(".hamburger");
 
 button.addEventListener('click',showmoredata);
+hamburger.addEventListener('click',navshow);
 
 var request1 = new XMLHttpRequest();
-request1.open('get','http://localhost/veggie/assets/menudata.json');
+request1.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
 request1.onload  = function() {
 	if(this.readyState == 4 && this.status == 200) {
 		var data = JSON.parse(request1.responseText);
@@ -38,7 +41,6 @@ request1.onload  = function() {
 	}
 };
 request1.send();
-
 
 function menudata(data,j,k){
 	for(var i=j; i<k;i++) {
@@ -59,7 +61,7 @@ var j=0,id=0;
 function showmoredata(e) {
 	e.preventDefault();
 	var request = new XMLHttpRequest();
-request.open('get','http://localhost/veggie/assets/menudata.json');
+request.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
 		request.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			var data = JSON.parse(request.responseText);
@@ -101,4 +103,8 @@ request.open('get','http://localhost/veggie/assets/menudata.json');
 		};
 	}
 	request.send();
+}
+
+function navshow() {
+	document.getElementsByTagName('nav')[0].style.display='block';
 }
