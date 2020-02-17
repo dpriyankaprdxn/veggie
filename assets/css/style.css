@@ -141,6 +141,7 @@ header {
   height: 5px;
   float: right;
   margin-bottom: 5px;
+  position: absolute;
   text-indent: -9999px;
   display: inline-block;
   background: green;
@@ -160,17 +161,11 @@ header {
   background: green;
 }
 
-.hamburger span:nth-child(1) {
-  top: 0px;
-}
+.hamburger span:nth-child(1) {  top: 0px; }
 
-.hamburger span:nth-child(2) {
-  top: 18px;
-}
+.hamburger span:nth-child(2) {  top: 18px; }
 
-.hamburger span:nth-child(3) {
-  top: 36px;
-}
+.hamburger span:nth-child(3) { top: 36px; }
 
 .hamburger.open span:nth-child(1) {
   top: 18px;
@@ -180,10 +175,7 @@ header {
   transform: rotate(135deg);
 }
 
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-  left: -60px;
-}
+.hamburger.open span:nth-child(2) {  opacity: 0; }
 
 .hamburger.open span:nth-child(3) {
   top: 18px;
