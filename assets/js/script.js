@@ -3,15 +3,18 @@ var getAllli = document.querySelectorAll('.veggieimgs li');
 var modal = document.querySelector('.modal');
 var modalimg = document.querySelector('.modal-content');
 var close = document.querySelector('.close');
-var span = document.getElementsByClassName("close")[0];
+var closespan = document.getElementsByClassName("close")[0];
 var srcvalue;
-span.onclick = function() { 
-  modal.style.display = "none";
-}
+var button = document.querySelector(".showmore");
+var result = document.querySelector(".menulist");
+var hamburger = document.querySelector(".hamburger");
+
+button.addEventListener('click',showmoredata);
+hamburger.addEventListener('click',navshow);
 
 bannerbutton.addEventListener('click',scrolltoTop);
+modal.addEventListener('click',closemodal);
 
-console.log(getAllli)
 for (var i = 0; i < getAllli.length; i++) {
   (function(x) {
     getAllli[x].addEventListener('click', function() {
@@ -24,9 +27,25 @@ for (var i = 0; i < getAllli.length; i++) {
   }(i));
 }
 
+function closemodal(e) {
+	if (e.target == modal) {
+    modal.style.display = "none";
+    document.documentElement.style.overflow = 'scroll';
+    document.body.scroll = "yes";
+  }
+}
+
+closespan.onclick = function() { 
+  modal.style.display = "none";
+  document.documentElement.style.overflow = 'scroll';
+  document.body.scroll = "yes";
+}
+
 function showimg() {
-	modal.style.display = 'block';
+  modal.style.display = 'block';
 	modalimg.src = srcvalue;
+  document.documentElement.style.overflow = 'hidden';
+  document.body.scroll = "no";
 }
 
 function scrolltoTop(e) {
@@ -34,13 +53,6 @@ function scrolltoTop(e) {
 	var elmntToView = document.querySelector(".turnip");
   elmntToView.scrollIntoView(); 
 }
-
-var button = document.querySelector(".showmore");
-var result = document.querySelector(".menulist");
-var hamburger = document.querySelector(".hamburger");
-
-button.addEventListener('click',showmoredata);
-hamburger.addEventListener('click',navshow);
 
 var request1 = new XMLHttpRequest();
 request1.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
@@ -119,4 +131,5 @@ function showmoredata(e) {
 
 function navshow() {
 	document.getElementsByTagName('nav')[0].style.display='block';
+	hamburger.classList.toggle('open');
 }
