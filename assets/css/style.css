@@ -701,8 +701,6 @@ footer ul li:last-child a:before {
   
   .monthSpecial li { flex-basis: 25%; }
 
-  .menulist { justify-content: center; }
-
   .menuNav li { flex-basis:17%; }
 
   .menulist li { flex-basis: 55%; }
