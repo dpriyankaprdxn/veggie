@@ -1,20 +1,24 @@
 var bannerbutton = document.querySelector('.banner-button');
-var getAllImages = document.querySelectorAll('.veggieimgs li');
+var getAllli = document.querySelectorAll('.veggieimgs li');
+var modal = document.querySelector('.img-model');
+var close = document.querySelector('.close');
 
 bannerbutton.addEventListener('click',scrolltoTop);
 
-console.log(getAllImages)
-for (var i = 0; i < getAllImages.length; i++) {
+console.log(getAllli)
+for (var i = 0; i < getAllli.length; i++) {
   (function(x) {
-    getAllImages[x].addEventListener('click', function() {
-      console.log('kkkhc');
-      console.log(getAllImages[x].figure);
-	  
-	      console.log(document.querySelector('.veggieimgs img'));
-
-		
+    getAllli[x].addEventListener('click', function() {
+      this.classList.add('selectedli');
+	    var selectedimg = document.querySelector('.selectedli img');
+	    showimg();
+      this.classList.remove('selectedli');	
     });
   }(i));
+}
+
+function showimg() {
+	modal.style.display = 'block';
 }
 
 function scrolltoTop(e) {
@@ -61,8 +65,8 @@ var j=0,id=0;
 function showmoredata(e) {
 	e.preventDefault();
 	var request = new XMLHttpRequest();
-request.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
-		request.onreadystatechange = function() {
+	request.open('get','http://localhost/priyanka/veggie/assets/menudata.json');
+	request.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			var data = JSON.parse(request.responseText);
 			rem = data.length%4;
