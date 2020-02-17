@@ -1,7 +1,13 @@
 var bannerbutton = document.querySelector('.banner-button');
 var getAllli = document.querySelectorAll('.veggieimgs li');
-var modal = document.querySelector('.img-model');
+var modal = document.querySelector('.modal');
+var modalimg = document.querySelector('.modal-content');
 var close = document.querySelector('.close');
+var span = document.getElementsByClassName("close")[0];
+var srcvalue;
+span.onclick = function() { 
+  modal.style.display = "none";
+}
 
 bannerbutton.addEventListener('click',scrolltoTop);
 
@@ -11,6 +17,7 @@ for (var i = 0; i < getAllli.length; i++) {
     getAllli[x].addEventListener('click', function() {
       this.classList.add('selectedli');
 	    var selectedimg = document.querySelector('.selectedli img');
+	    srcvalue =selectedimg.src;
 	    showimg();
       this.classList.remove('selectedli');	
     });
@@ -19,6 +26,7 @@ for (var i = 0; i < getAllli.length; i++) {
 
 function showimg() {
 	modal.style.display = 'block';
+	modalimg.src = srcvalue;
 }
 
 function scrolltoTop(e) {
