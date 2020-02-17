@@ -330,20 +330,23 @@ h3 + figure {  text-align: center; }
 
 .veggieInfo span { color: #696969; }
 
-.img-model {
+.modal {
+  padding: 100px 0 50px;
   display: none; 
   position: fixed;
   z-index: 1; 
-  padding-top: 100px; 
   left: 50%;
   top: 50%;
-  width: 60%; 
+  width: 35%; 
   overflow: auto; 
   background-color: rgba(0,0,0,0.9); 
+  text-align: center;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+.modal img { max-width: 195px; }
 
 .close {
   position: absolute;
